@@ -1,0 +1,116 @@
+name: "ssd"
+caffe_ssd {
+  box_input: "ext/pm1_mbox_loc_Y"
+  box_input: "ext/pm2_mbox_loc_Y"
+  box_input: "ext/pm3_mbox_loc_Y"
+  box_input: "ext/pm4_mbox_loc_Y"
+  box_input: "ext/pm5_mbox_loc_Y"
+  box_input: "ext/pm6_mbox_loc_Y"
+  class_input: "ext/pm1_mbox_conf_Y"
+  class_input: "ext/pm2_mbox_conf_Y"
+  class_input: "ext/pm3_mbox_conf_Y"
+  class_input: "ext/pm4_mbox_conf_Y"
+  class_input: "ext/pm5_mbox_conf_Y"
+  class_input: "ext/pm6_mbox_conf_Y"
+  output: "Boxes"
+  output: "Labels"
+  in_width: 304
+  in_height: 304
+  prior_box_param {
+    min_size: 30.4
+    max_size: 60.8
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 16
+  }
+  prior_box_param {
+    min_size: 60.8
+    max_size: 112.48
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 16
+  }
+  prior_box_param {
+    min_size: 112.48
+    max_size: 164.16
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 32
+  }
+  prior_box_param {
+    min_size: 164.16
+    max_size: 215.84
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 60
+  }
+  prior_box_param {
+    min_size: 215.84
+    max_size: 267.52
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 100
+  }
+  prior_box_param {
+    min_size: 267.52
+    max_size: 319.2
+    aspect_ratio: 2
+    aspect_ratio: 3
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    offset: 0.5
+    step: 304
+  }
+  detection_output_param {
+    num_classes: 21
+    share_location: true
+    background_label_id: 0
+    nms_param {
+      nms_threshold: 0.45
+      top_k: 100
+    }
+    code_type: CENTER_SIZE
+    keep_top_k: 200
+    confidence_threshold: 0.05
+  }
+  framework: "MMDetection"
+}

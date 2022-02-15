@@ -1,0 +1,115 @@
+name: "ssd"
+caffe_ssd {
+  box_input: "conv11_mbox_loc_Y"
+  box_input: "conv13_mbox_loc_Y"
+  box_input: "conv14_2_mbox_loc_Y"
+  box_input: "conv15_2_mbox_loc_Y"
+  box_input: "conv16_2_mbox_loc_Y"
+  box_input: "conv17_2_mbox_loc_Y"
+  class_input: "conv11_mbox_conf_Y"
+  class_input: "conv13_mbox_conf_Y"
+  class_input: "conv14_2_mbox_conf_Y"
+  class_input: "conv15_2_mbox_conf_Y"
+  class_input: "conv16_2_mbox_conf_Y"
+  class_input: "conv17_2_mbox_conf_Y"
+  output: "Boxes"
+  output: "Labels"
+  in_width: 300
+  in_height: 300
+  prior_box_param {
+    min_size: 60.0
+    aspect_ratio: 2.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 16.0
+    offset: 0.5
+  }
+  prior_box_param {
+    min_size: 105.0
+    max_size: 150.0
+    aspect_ratio: 2.0
+    aspect_ratio: 3.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 32.0
+    offset: 0.5
+  }
+  prior_box_param {
+    min_size: 150.0
+    max_size: 195.0
+    aspect_ratio: 2.0
+    aspect_ratio: 3.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 64.0
+    offset: 0.5
+  }
+  prior_box_param {
+    min_size: 195.0
+    max_size: 240.0
+    aspect_ratio: 2.0
+    aspect_ratio: 3.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 128.0
+    offset: 0.5
+  }
+  prior_box_param {
+    min_size: 240.0
+    max_size: 280.0
+    aspect_ratio: 2.0
+    aspect_ratio: 3.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 256.0
+    offset: 0.5
+  }
+  prior_box_param {
+    min_size: 280.0
+    max_size: 300.0
+    aspect_ratio: 2.0
+    aspect_ratio: 3.0
+    flip: true
+    clip: false
+    variance: 0.1
+    variance: 0.1
+    variance: 0.2
+    variance: 0.2
+    step: 512.0
+    offset: 0.5
+  }
+  detection_output_param {
+    num_classes: 21
+    share_location: true
+    background_label_id: 0
+    nms_param {
+      nms_threshold: 0.45
+      top_k: 100
+    }
+    code_type: CENTER_SIZE
+    keep_top_k: 200
+    confidence_threshold: 0.05
+  }
+  framework: "MMDetection"
+}
+
