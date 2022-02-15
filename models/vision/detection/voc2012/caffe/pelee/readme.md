@@ -1,4 +1,4 @@
 # Source 
-    [Git Hub Repo](https://github.com/Robert-JunWang/Pelee)
+- [Git Hub Repo](https://github.com/Robert-JunWang/Pelee)
 # License
-    [BSD 3-Clause License](https://github.com/Robert-JunWang/Pelee/blob/master/LICENSE)
+- [BSD 3-Clause License](https://github.com/Robert-JunWang/Pelee/blob/master/LICENSE)
